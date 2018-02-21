@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/index.css';
 
 
 class MainWrapper extends React.Component {
@@ -9,7 +9,7 @@ class MainWrapper extends React.Component {
         super(props);
 
         this.state = {
-            currentMode: 'stop',
+            currentMode: 'setting',
             settingDelay: 5,
             settingTimer: 3,
             settingRest: 2,
@@ -26,7 +26,7 @@ class MainWrapper extends React.Component {
 
     handleChange(e) {
         const name = e.target.name;
-        const value = e.target.value
+        const value = e.target.value;
 
         this.setState({[name]: value});
     }
@@ -98,20 +98,27 @@ class MainWrapper extends React.Component {
     render() {
 
         return(
-            <div className={"container bg-" + (this.state.currentMode)}>
-                <div className={"container-item text-center"}>
-                    <div>
-                        Timer
-                        <input type="text" name="settingTimer" value={this.state.settingTimer} onChange={this.handleChange} />
-                    </div>
-                    <div>
-                        Sets
-                        <input type="text" name="settingSets" value={this.state.settingSets} onChange={this.handleChange} />
-                    </div>
-                    <div>
-                        Rest
-                        <input type="text" name="settingRest" value={this.state.settingRest} onChange={this.handleChange} />
-                    </div>
+            <div className={"container bg bg-" + (this.state.currentMode)}>
+                <div class="header">
+                    <h1>My Interval Training Timer</h1>
+                </div>
+
+                <div className={"content text-center"}>
+                    <form>
+                        <div>
+                            <label>Timer</label>
+                            <input type="text" name="settingTimer" value={this.state.settingTimer} onChange={this.handleChange} />
+                        </div>
+                        <div>
+                            <label>Sets</label>
+                            <input type="text" name="settingSets" value={this.state.settingSets} onChange={this.handleChange} />
+                        </div>
+                        <div>
+                            <label>Rest</label>
+                            <input type="text" name="settingRest" value={this.state.settingRest} onChange={this.handleChange} />
+                        </div>
+                    </form>
+
                     <button onClick={this.start}>Run</button>
                     <h2>Sets: {this.state.currentSet}</h2>
                     <h2>{this.state.currentMode}</h2>

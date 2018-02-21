@@ -1,0 +1,24 @@
+form {
+    font-size: 2.5em;
+}
+
+form input {
+    font-size: 2.5em;
+}
+
+input {
+    width: 100%;
+    display: block;
+    color: white;
+    text-align: center;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}
+
+input:focus{
+    outline: none;
+}
+
