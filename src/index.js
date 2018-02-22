@@ -15,7 +15,7 @@ class MainWrapper extends React.Component {
             settingTimer: 3,
             settingRest: 2,
             settingSets: 2,
-            currentSet: null,
+            currentSet: 0,
             timer: 0
         };
 
