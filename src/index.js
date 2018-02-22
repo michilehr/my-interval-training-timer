@@ -99,10 +99,6 @@ class MainWrapper extends React.Component {
 
         return(
             <div className={"container bg bg-" + (this.state.currentMode)}>
-                <div class="header">
-                    <h1>My Interval Training Timer</h1>
-                </div>
-
                 <div className={"content text-center"}>
                     <form>
                         <div>
