@@ -16,7 +16,8 @@ class MainWrapper extends React.Component {
             settingRest: 2,
             settingSets: 2,
             currentSet: 0,
-            timer: 0
+            timer: 0,
+            isPaused: false
         };
 
         this.start = this.start.bind(this);
@@ -25,6 +26,7 @@ class MainWrapper extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.previousSettingStep = this.previousSettingStep.bind(this);
         this.nextSettingStep = this.nextSettingStep.bind(this);
+        this.pause = this.pause.bind(this);
     }
 
     handleChange(e) {
@@ -54,6 +56,18 @@ class MainWrapper extends React.Component {
         this.handleMode();
     }
 
+    pause() {
+        this.setState({
+            isPaused: !this.state.isPaused
+        });
+
+        if (this.state.isPaused) {
+            this.interval = setInterval(this.tick, 1000);
+        } else {
+            clearInterval(this.interval);
+        }
+    }
+
     stop() {
         this.setState({
             timer: 0
@@ -62,13 +76,20 @@ class MainWrapper extends React.Component {
     }
 
     start() {
-        this.stop();
 
-        this.setState({
-            timer: this.state.settingDelay,
-            currentMode: 'delay',
-            currentSet: this.state.settingSets,
-        });
+        if (!this.state.isPaused) {
+            this.stop();
+
+            this.setState({
+                timer: this.state.settingDelay,
+                currentMode: 'delay',
+                currentSet: this.state.settingSets,
+            });
+        } else {
+            this.setState({
+                isPaused: false
+            });
+        }
 
         this.interval = setInterval(this.tick, 1000);
     }
@@ -104,7 +125,7 @@ class MainWrapper extends React.Component {
         } else if (currentMode === 'start') {
             nextMode = this.state.settingRest > 0 ? 'rest' : 'start';
             this.setState({
-                currentSet: this.state.currentSet - 1,
+                currentSet: this.state.currentSet > 0 ? this.state.currentSet - 1 : 0,
                 timer: this.state.settingRest > 0 ? this.state.settingRest : this.state.settingTimer
             });
         } else if (currentMode === 'rest') {
@@ -162,9 +183,14 @@ class MainWrapper extends React.Component {
 
         var buttonsControl = (
             <div className={"buttons-control-group"} >
-                <button onClick={this.start}>
-                    <i className={"material-icons md-48"}>play_arrow</i>
-                </button>
+                {['delay', 'start', 'rest'].includes(this.state.currentMode) && this.state.isPaused !== true ? (
+                    <button onClick={this.pause}>
+                        <i className={"material-icons md-48"}>pause</i>
+                    </button>
+                ) : (
+                    <button onClick={this.start}>
+                        <i className={"material-icons md-48"}>play_arrow</i>
+                    </button>                )}
             </div>
         );
 
