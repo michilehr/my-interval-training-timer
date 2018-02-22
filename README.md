@@ -2,6 +2,8 @@
 
 A simple interval training timer built with react: https://michilehr.github.io/my-interval-training-timer
 
+![app-image](my-interval-training-timer.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ---
