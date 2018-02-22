@@ -22,3 +22,14 @@ input:focus{
     outline: none;
 }
 
+.setting {
+    transition: opacity 500ms ease-in-out;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.setting.current {
+    opacity: 1;
+    height: auto;
+}

@@ -3,3 +3,14 @@
 @import './fonts.css';
 @import './background.css';
 @import './form.css';
+@import './button.css';
+@import './icons.css';
+@import './running.css';
+
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}

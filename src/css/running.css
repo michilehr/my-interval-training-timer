@@ -1,0 +1,21 @@
+.running-step {
+    padding: 25px 0;
+}
+
+.running-step-label {
+    font-size: 3em;
+}
+
+.running-step-heading {
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 0.9em;
+}
+
+.running-step-heading-big {
+    font-size: 9em;
+}
+
+span.running-step-label {
+    margin-right: 10px;
+}

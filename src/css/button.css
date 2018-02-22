@@ -1,0 +1,53 @@
+button {
+    color: white;
+    padding: 1em;
+    background: none;
+    border: 2px solid white;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+}
+
+button:focus{
+    outline: none;
+}
+
+.buttons-control-group {
+    margin: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.button-group button:not(:first-child) {
+    margin-left: 20px;
+}
+
+.button-settings {
+    position: absolute;
+    margin: 0 20px;
+}
+
+.button-settings i {
+    font-size: 36px;
+}
+
+.button-settings.button-settings-left {
+    left: 0;
+}
+
+.button-settings.button-settings-right {
+    right: 0;
+}
+
+@media screen and (max-width: 840px) {
+    .button-settings i {
+        font-size: 24px;
+    }
+
+    button.button-settings {
+        height: 55px;
+        width: 55px;
+    }
+}
