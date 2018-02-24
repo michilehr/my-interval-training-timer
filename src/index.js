@@ -27,6 +27,7 @@ class MainWrapper extends React.Component {
         this.previousSettingStep = this.previousSettingStep.bind(this);
         this.nextSettingStep = this.nextSettingStep.bind(this);
         this.pause = this.pause.bind(this);
+        this.getTimerFormated = this.getTimerFormated.bind(this);
     }
 
     handleChange(e) {
@@ -104,8 +105,14 @@ class MainWrapper extends React.Component {
         this.setState({
             currentSettingStep: this.state.currentSettingStep + 1
         });
+        }
 
-        console.log('clicked');
+    getTimerFormated() {
+
+        var minutes = "0" + Math.floor(this.state.timer / 60).toString();
+        var seconds = "0" + (this.state.timer - minutes * 60).toString();
+
+        return minutes.toString().slice(-2) + ":" + seconds.slice(-2);
     }
 
     handleMode() {
@@ -175,7 +182,7 @@ class MainWrapper extends React.Component {
                         <div className={"running-step-heading"}>{this.getCurrentModeName()}</div>
                     </div>
                     <div className={"running-step"}>
-                        <div className={"running-step-heading running-step-heading-big"}>{this.state.timer}</div>
+                        <div className={"running-step-heading running-step-heading-big"}>{this.getTimerFormated()}</div>
                     </div>
                 </div>
             );
