@@ -7,10 +7,19 @@ button {
     height: 70px;
     width: 70px;
     cursor: pointer;
+    position: relative;
 }
 
 button:focus{
     outline: none;
+}
+
+button > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .buttons-control-group {
@@ -24,21 +33,21 @@ button:focus{
     margin-left: 20px;
 }
 
-.button-settings {
+.button-settings-container {
     position: absolute;
     margin: 0 20px;
 }
 
+.button-settings-container.button-settings-container-left {
+    left : 0;
+}
+
+.button-settings-container.button-settings-container-right {
+    right: 0;
+}
+
 .button-settings i {
     font-size: 36px;
-}
-
-.button-settings.button-settings-left {
-    left: 0;
-}
-
-.button-settings.button-settings-right {
-    right: 0;
 }
 
 @media screen and (max-width: 840px) {

@@ -195,15 +195,19 @@ class MainWrapper extends React.Component {
         );
 
         var buttonSettingsLeft = (
-            <button className={"button-settings button-settings-left" + (this.state.currentSettingStep < 1 || this.state.currentMode !== 'setting' ? " hidden" : "")} onClick={this.previousSettingStep}>
-                <i className={"material-icons"}>chevron_left</i>
-            </button>
+            <div className={"button-settings-container button-settings-container-left"}>
+                <button className={"button-settings" + (this.state.currentSettingStep < 1 || this.state.currentMode !== 'setting' ? " hidden" : "")} onClick={this.previousSettingStep}>
+                    <i className={"material-icons"}>chevron_left</i>
+                </button>
+            </div>
         );
 
         var buttonSettingsRight = (
-            <button className={"button-settings button-settings-right" + (this.state.currentSettingStep > 1 || this.state.currentMode !== 'setting' ? " hidden" : "")} onClick={this.nextSettingStep}>
-                <i className={"material-icons"}>chevron_right</i>
-            </button>
+            <div className={"button-settings-container button-settings-container-right"}>
+                <button className={"button-settings" + (this.state.currentSettingStep > 1 || this.state.currentMode !== 'setting' ? " hidden" : "")} onClick={this.nextSettingStep}>
+                    <i className={"material-icons"}>chevron_right</i>
+                </button>
+            </div>
         );
 
         return(
