@@ -36,6 +36,8 @@ button > i {
 .button-settings-container {
     position: absolute;
     margin: 0 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .button-settings-container.button-settings-container-left {
