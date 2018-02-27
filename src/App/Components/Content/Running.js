@@ -8,7 +8,7 @@ class Running extends React.Component {
         let modes = {
             'setting':  'Settings',
             'stop' :    'Finished!',
-            'delay':    'Get ready!',
+            'delay':    'Ready?',
             'start':    'Work it!',
             'rest':     'Break'
         };
