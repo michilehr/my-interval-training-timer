@@ -26,7 +26,6 @@ class App extends React.Component {
         this.stop = this.stop.bind(this);
         this.tick = this.tick.bind(this);
         this.handleChangeSetting = this.handleChangeSetting.bind(this);
-        this.handleChangeSettingStep = this.handleChangeSettingStep.bind(this);
         this.pause = this.pause.bind(this);
     }
 
@@ -83,12 +82,6 @@ class App extends React.Component {
         this.interval = setInterval(this.tick, 1000);
     }
 
-    handleChangeSettingStep(previous = false) {
-        this.setState({
-            currentSettingStep: this.state.currentSettingStep += (previous ? -1 : +1)
-        });
-    }
-
     handleMode() {
         let nextMode;
 
@@ -133,7 +126,6 @@ class App extends React.Component {
                         currentMode={this.state.currentMode}
                         currentSet={this.state.currentSet}
                         timer={this.state.timer}
-                        currentSettingStep={this.state.currentSettingStep}
                         settingRest={this.state.settingRest}
                         settingSets={this.state.settingSets}
                         settingTimer={this.state.settingTimer}

@@ -10,12 +10,10 @@ class Content extends React.Component {
             currentSet,
             timer,
             currentMode,
-            currentSettingStep,
             settingTimer,
             settingSets,
             settingRest,
             handleChangeSetting,
-            handleChangeSettingStep
     } = this.props;
 
         let content;
@@ -23,13 +21,11 @@ class Content extends React.Component {
         if (currentMode === 'setting') {
             content = (
                 <Settings
-                    currentSettingStep={currentSettingStep}
                     settingTimer={settingTimer}
                     settingSets={settingSets}
                     settingRest={settingRest}
                     currentMode={currentMode}
                     handleChangeSetting={handleChangeSetting}
-                    handleChangeSettingStep={handleChangeSettingStep}
                 />
             );
         } else {
