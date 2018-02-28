@@ -38,7 +38,7 @@ class App extends React.Component {
 
     tick() {
         this.setState({
-            timer: (this.state.currentMode !== "stop") ? this.state.timer - 1 : this.state.timer + 1
+            timer: (this.state.currentMode !== "stop") ? this.state.timer - 1 : parseInt(this.state.timer) + 1
         });
 
         this.handleMode();
@@ -85,6 +85,7 @@ class App extends React.Component {
     handleMode() {
         let nextMode;
 
+        // TODO: needs cleanup to make ot more robust
         if (this.state.timer !== 0) {
             return;
         }
@@ -96,10 +97,10 @@ class App extends React.Component {
             this.setState({
                 timer: this.state.settingTimer
             });
-        } else if (currentMode === 'start') {
+        } else if (currentMode === 'start' && this.state.currentSet > 0) {
             nextMode = this.state.settingRest > 0 ? 'rest' : 'start';
             this.setState({
-                currentSet: this.state.currentSet > 0 ? this.state.currentSet - 1 : 0,
+                currentSet: this.state.currentSet - 1,
                 timer: this.state.settingRest > 0 ? this.state.settingRest : this.state.settingTimer
             });
         } else if (currentMode === 'rest') {
@@ -111,6 +112,9 @@ class App extends React.Component {
 
         if (this.state.currentSet === 0) {
             nextMode = 'stop';
+            this.setState({
+                timer: 0
+            });
         }
 
         this.setState({
