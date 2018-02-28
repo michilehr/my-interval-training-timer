@@ -4,11 +4,18 @@ import Play from "./Play";
 import Pause from "./Pause";
 
 class Control extends React.Component {
+
+    isRunning() {
+        const { currentMode, isPaused } = this.props;
+
+        return ['delay', 'start', 'rest'].includes(currentMode) && isPaused !== true;
+    }
+
     render() {
-        const { currentMode, isPaused, onClickPlay, onClickPause } = this.props;
+        const { onClickPlay, onClickPause } = this.props;
         return (
             <div className={"buttons-control-group"} >
-                {['delay', 'start', 'rest'].includes(currentMode) && isPaused !== true ? (
+                {this.isRunning() ? (
                     <Pause
                         onClickPause={onClickPause}
                     />
