@@ -6,6 +6,7 @@
 @import './button.css';
 @import './icons.css';
 @import './running.css';
+@import '~material-design-icons/iconfont/material-icons.css';
 
 .hidden {
     display: none;
