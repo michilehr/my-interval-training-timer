@@ -9,8 +9,6 @@ class Control extends React.Component {
         const { currentMode, isPaused } = this.props;
 
         return ['delay', 'start', 'rest'].includes(currentMode) && isPaused !== true;
-
-        this.playVideo = this.playVideo.bind(this);
     }
 
     pauseVideo() {
