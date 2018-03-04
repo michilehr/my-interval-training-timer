@@ -4,6 +4,7 @@ import React from "react";
 
 import Control from "./Components/Control/Control";
 import Content from "./Components/Content/Content";
+import NoSleep from "./Components/NoSleep/NoSleep";
 
 class App extends React.Component {
 
@@ -51,8 +52,10 @@ class App extends React.Component {
 
         if (this.state.isPaused) {
             this.interval = setInterval(this.tick, 1000);
+            this._noSleep.playVideo();
         } else {
             clearInterval(this.interval);
+            this._noSleep.pauseVideo();
         }
     }
 
@@ -78,6 +81,8 @@ class App extends React.Component {
                 isPaused: false
             });
         }
+
+        this._noSleep.playVideo();
 
         this.interval = setInterval(this.tick, 1000);
     }
@@ -142,6 +147,7 @@ class App extends React.Component {
                         onClickPause={this.pause}
                         onClickPlay={this.start}
                     />
+                    <NoSleep ref={(noSleep) => { this._noSleep = noSleep; }} />
                 </div>
             </div>
         )
