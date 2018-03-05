@@ -22,6 +22,12 @@ input:focus{
     outline: none;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .setting {
     transition: opacity 500ms ease-in-out;
     height: 0;
