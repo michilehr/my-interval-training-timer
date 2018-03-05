@@ -62,3 +62,10 @@ button > i {
         width: 55px;
     }
 }
+
+@media screen and (max-height: 340px) {
+    .buttons-control-group {
+        top: 0;
+        right: 0;
+    }
+}
