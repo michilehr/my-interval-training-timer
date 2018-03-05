@@ -1,4 +1,5 @@
 import React from "react";
+import InputNumber from "../Form/InputNumber.js";
 
 class Settings extends React.Component {
 
@@ -32,15 +33,33 @@ class Settings extends React.Component {
                 <form>
                     <div className={"setting" + (this.state.currentSettingStep === 0 ? " current" : "")}>
                         <label>Timer</label>
-                        <input type="number" name="settingTimer" autoComplete="off" value={settingTimer} onChange={handleChangeSetting} />
+                        <InputNumber
+                            name="settingTimer"
+                            autoComplete="off"
+                            onChangeEvent={handleChangeSetting}
+                            value={settingTimer}
+                            min={1}
+                        />
                     </div>
                     <div className={"setting" + (this.state.currentSettingStep === 1 ? " current" : "")}>
                         <label>Sets</label>
-                        <input type="number" name="settingSets" autoComplete="off" value={settingSets} onChange={handleChangeSetting} />
+                        <InputNumber
+                            name="settingSets"
+                            autoComplete="off"
+                            onChangeEvent={handleChangeSetting}
+                            value={settingSets}
+                            min={1}
+                        />
                     </div>
                     <div className={"setting" + (this.state.currentSettingStep === 2 ? " current" : "")}>
                         <label>Rest</label>
-                        <input type="number" name="settingRest" autoComplete="off" value={settingRest} onChange={handleChangeSetting} />
+                        <InputNumber
+                            name="settingRest"
+                            autoComplete="off"
+                            onChangeEvent={handleChangeSetting}
+                            value={settingRest}
+                            min={0}
+                        />
                     </div>
 
                 </form>
