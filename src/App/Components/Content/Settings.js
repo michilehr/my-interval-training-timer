@@ -32,15 +32,15 @@ class Settings extends React.Component {
                 <form>
                     <div className={"setting" + (this.state.currentSettingStep === 0 ? " current" : "")}>
                         <label>Timer</label>
-                        <input type="text" name="settingTimer" value={settingTimer} onChange={handleChangeSetting} />
+                        <input type="number" name="settingTimer" value={settingTimer} onChange={handleChangeSetting} />
                     </div>
                     <div className={"setting" + (this.state.currentSettingStep === 1 ? " current" : "")}>
                         <label>Sets</label>
-                        <input type="text" name="settingSets" value={settingSets} onChange={handleChangeSetting} />
+                        <input type="number" name="settingSets" value={settingSets} onChange={handleChangeSetting} />
                     </div>
                     <div className={"setting" + (this.state.currentSettingStep === 2 ? " current" : "")}>
                         <label>Rest</label>
-                        <input type="text" name="settingRest" value={settingRest} onChange={handleChangeSetting} />
+                        <input type="number" name="settingRest" value={settingRest} onChange={handleChangeSetting} />
                     </div>
 
                 </form>
