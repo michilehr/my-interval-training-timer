@@ -5,6 +5,7 @@ import React from "react";
 import Control from "./Components/Control/Control";
 import Content from "./Components/Content/Content";
 import NoSleep from "./Components/NoSleep/NoSleep";
+import AudioNotification from "./Components/AudioNotification/AudioNotification";
 
 class App extends React.Component {
 
@@ -82,6 +83,7 @@ class App extends React.Component {
             });
         }
 
+        this._audioNotification.play(true);
         this._noSleep.playVideo();
 
         this.interval = setInterval(this.tick, 1000);
@@ -148,6 +150,12 @@ class App extends React.Component {
                         onClickPlay={this.start}
                     />
                     <NoSleep ref={(noSleep) => { this._noSleep = noSleep; }} />
+                    <AudioNotification
+                        timer={this.state.timer}
+                        currentMode={this.state.currentMode}
+                        isPaused={this.state.isPaused}
+                        ref={(audioNotification) => { this._audioNotification = audioNotification; }}
+                    />
                 </div>
             </div>
         )
